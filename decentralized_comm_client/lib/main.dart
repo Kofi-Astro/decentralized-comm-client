@@ -1,3 +1,5 @@
+import 'package:decentralized_comm_client/pages/chatroom.dart';
+
 import 'pages/dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: Dashboard(),
+      routes: {
+        // '/chatroom': (context)=> ChatRoomPage(name: name)
+      },
     );
   }
 }

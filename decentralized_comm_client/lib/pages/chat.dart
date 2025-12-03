@@ -1,3 +1,4 @@
+import 'package:decentralized_comm_client/pages/chatroom.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -5,43 +6,54 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-     void onTap() {
-      Navigator.pushNamed(context, '/chatroom');
-    }
-
-    Widget _buildListTile() {
-      return ListTile(
-        leading: CircleAvatar(),
-        title: Text('Captain'),
-        subtitle: Text('I will be there soon'),
-        trailing: Text('00:00'),
-        // onTap: onTap(),
+    void onTap(String name) {
+      // Navigator.pushNamed(context, '/chatroom');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChatRoomPage(name: name)),
       );
     }
 
+    Widget _buildListTile(String username) {
+      return Column(
+        children: [
+          ListTile(
+            leading: CircleAvatar(),
+            title: Text(username),
+            subtitle: Text('I will be there soon'),
+            trailing: Text('00:00'),
+            // onTap: onTap(username),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatRoomPage(name: username),
+                ),
+              );
+            },
+          ),
+          Divider(),
+        ],
+      );
+    }
 
     return ListView(
       children: [
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
-        Divider(),
-        _buildListTile(),
+        _buildListTile('Captain'),
+        _buildListTile('Kelvin'),
+        _buildListTile('Kay'),
+        _buildListTile('Astro'),
+        _buildListTile('Max'),
+        _buildListTile('Captain'),
+        _buildListTile('Kelvin'),
+        _buildListTile('Kay'),
+        _buildListTile('Astro'),
+        _buildListTile('Max'),
+        _buildListTile('Captain'),
+        _buildListTile('Kelvin'),
+        _buildListTile('Kay'),
+        _buildListTile('Astro'),
+        _buildListTile('Max'),
       ],
     );
   }
