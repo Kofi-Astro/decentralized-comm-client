@@ -34,11 +34,7 @@ class ChatRoomPage extends StatelessWidget {
                         onPlayPauseButtonClick: () {},
                         color: Colors.purple,
                       ),
-                      BubbleNormalImage(
-                        id: 'Anime',
-                        image: Image.asset('assets/images/anime.jpeg'),
-                        color: Colors.deepOrange,
-                      ),
+
                       BubbleNormalImage(
                         id: 'Anime',
                         image: Image.asset('assets/images/anime.jpeg'),
@@ -86,38 +82,10 @@ class ChatRoomPage extends StatelessWidget {
               MessageBar(
                 actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
               ),
-
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SizedBox(
-                  height: 40,
-                  // width: double.maxFinite,
-                  child: Row(
-                    children: [
-                      messageButton(icon: Icons.add),
-                      Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ),
-                      messageButton(icon: Icons.camera_alt_outlined),
-                      messageButton(icon: Icons.mic_rounded),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  IconButton messageButton({required IconData icon}) {
-    return IconButton(onPressed: () {}, icon: Icon(icon));
   }
 }
